@@ -23,7 +23,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="consoleHelper.h" />
+		<Unit filename="consoleHelper.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

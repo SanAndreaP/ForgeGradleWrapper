@@ -1,5 +1,5 @@
-#ifndef CONSOLEHELPER_H_INCLUDED
-#define CONSOLEHELPER_H_INCLUDED
+#ifndef CONSOLEHELPER_HPP_INCLUDED
+#define CONSOLEHELPER_HPP_INCLUDED
 #include <windows.h>
 
 enum Colors {
@@ -47,4 +47,4 @@ void setColor(Colors color) {
     setColorWnd(color);
 }
 
-#endif // CONSOLEHELPER_H_INCLUDED
+#endif // CONSOLEHELPER_HPP_INCLUDED
