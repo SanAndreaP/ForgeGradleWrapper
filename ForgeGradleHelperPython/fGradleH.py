@@ -12,10 +12,10 @@ import setupBuild
 from colorama import init, Fore, Back, Style
 from consoleHelper import ConsoleHelper
 
-# if sys.stdout.encoding != 'cp850':
-    # sys.stdout = codecs.getwriter('cp850')(sys.stdout, 'strict')
-# if sys.stderr.encoding != 'cp850':
-    # sys.stderr = codecs.getwriter('cp850')(sys.stderr, 'strict')
+if sys.stdout.encoding != 'cp850':
+    sys.stdout = codecs.getwriter('cp850')(sys.stdout, 'strict')
+if sys.stderr.encoding != 'cp850':
+    sys.stderr = codecs.getwriter('cp850')(sys.stderr, 'strict')
 
 init()
 
