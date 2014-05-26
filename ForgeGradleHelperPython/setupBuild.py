@@ -1,2 +1,2 @@
-def setupBuild():
+def call():
     print()

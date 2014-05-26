@@ -5,6 +5,8 @@ import webbrowser
 import zipfile
 import os.path
 import urllib2
+import shutil
+import title
 import json
 import time
 import os
@@ -29,9 +31,9 @@ def downloadGradle():
     for id in packages:
         print(" [" + Style.BRIGHT + str(id) + Style.NORMAL + "] " + packages[id])
     print
-    input = raw_input("\nPlease enter a preferred build number to continue > ")
+    input = raw_input("\nPlease enter a preferred build number to continue > " + Style.BRIGHT)
     
-    print("Downloading Forge... ", end='')
+    print(Style.NORMAL + "Downloading Forge... ", end='')
     forgeBuild = jsonData["number"][input]["mcversion"] + "-" + jsonData["number"][input]["version"]
     response = urllib2.urlopen(jsonData["webpath"] + "/" + forgeBuild + "/forge-" + forgeBuild + "-src.zip")
     zipData = zipfile.ZipFile(io.BytesIO(response.read()))
@@ -43,51 +45,62 @@ def downloadGradle():
     
     print("Forge successfully downloaded to /forge/")
 
-def runGradleTask(percent, callList, baseWPath):
+def runGradleTask(percent, callList):
     output = 0
     print("\rSetup ForgeGradle... " + str(percent) + "%", end='')
     try:
-        execData = ["gradlew"]
+        execData = [os.path.join(os.getcwd(), gradlePath, "gradlew")]
         execData.extend(callList)
-        output = subprocess.call(execData, creationflags=subprocess.CREATE_NEW_CONSOLE)
+        output = subprocess.call(execData, creationflags=subprocess.CREATE_NEW_CONSOLE, cwd=gradlePath)
     except Exception:
         try:
-            execData = ["gradlew.bat"]
+            execData = [os.path.join(os.getcwd(), gradlePath, "gradlew.bat")]
             execData.extend(callList)
-            output = subprocess.call(execData, creationflags=subprocess.CREATE_NEW_CONSOLE)
+            output = subprocess.call(execData, creationflags=subprocess.CREATE_NEW_CONSOLE, cwd=gradlePath)
         except Exception as ex:
             print(ex)
 
     if output != 0:
-        reinit()
-        input = raw_input(Fore.RED + Style.BRIGHT + "\nThere was something wrong with the setup! Do you want to show the log file? [Y/N] > ")
+        print(Fore.RED + Style.BRIGHT + "\nSetup failed with return code " + hex(output) + "!")
+        input = raw_input("Do you want to show the log file? [Y/N] > " + Fore.WHITE)
+        print(Fore.RESET + Style.NORMAL, end="")
         if input.lower() == "y":
-            webbrowser.open("file://" + os.getcwd() + "/.gradle/gradle.log")
-        os.chdir(baseWPath)
+            webbrowser.open("file://" + os.path.join(os.getcwd(), gradlePath, ".gradle/gradle.log"))
         return False
     return True
+    
+def copyDefBuildGradle():
+    shutil.copyfile(os.path.join(gradlePath, "build.gradle"), os.path.join(gradlePath, "src/main/build.gradle"))
+    with io.open(os.path.join(gradlePath, "src/main/build.gradle"), mode="a", encoding="utf-8") as buildGradle:
+        buildGradle.write(u"\ndependencies {")
+        buildGradle.write(u"\n    compile fileTree(dir: 'libs', include: '*.jar')")
+        buildGradle.write(u"\n}\n")
+        buildGradle.write(u"\nsourceSets {")
+        buildGradle.write(u"\n    main {")
+        buildGradle.write(u"\n        java { srcDir 'java' }")
+        buildGradle.write(u"\n        resources { srcDir 'resources' }")
+        buildGradle.write(u"\n    }")
+        buildGradle.write(u"\n}\n")
+        buildGradle.close()
+
  
 def setupGradle():
-    print(Fore.RESET + Back.RESET + Style.RESET_ALL)
-    deinit()
-    baseWPath = os.getcwd()
-    os.chdir(gradlePath)
-    if not runGradleTask(00, ["clean"], baseWPath):
+    if not runGradleTask(00, ["clean"]):
         return
-    if not runGradleTask(25, ["cleanCache"], baseWPath):
+    if not runGradleTask(25, ["cleanCache"]):
         return
-    if not runGradleTask(50, ["setupDecompWorkspace", "--refresh-dependencies", "--stacktrace"], baseWPath):
+    if not runGradleTask(50, ["setupDecompWorkspace", "--refresh-dependencies", "--stacktrace"]):
         return
-    if not runGradleTask(75, ["eclipse"], baseWPath):
+    if not runGradleTask(75, ["eclipse"]):
         return
+    copyDefBuildGradle()
     print("\rSetup ForgeGradle... [Done]")
-    os.chdir(baseWPath)
-    reinit()
 
-def checkForGradlew():
+def call():
+    title.show("Forge Setup")
     hasGradle = False
     if not os.path.isfile("gradlew") and not os.path.isfile("forge/gradlew"):
-        input = raw_input(Style.BRIGHT + Fore.YELLOW + "gradlew could not be found! Do you want to setup Forge here? [Y/N] > " + Fore.WHITE + Style.NORMAL)
+        input = raw_input(Style.BRIGHT + Fore.YELLOW + "gradlew could not be found! Do you want to set it up here? [Y/N] > " + Fore.WHITE + Style.NORMAL)
         if input.lower() == "y":
             downloadGradle()
             global gradlePath
@@ -101,6 +114,3 @@ def checkForGradlew():
     
     if hasGradle:
         setupGradle()
-
-def setupForge():
-    checkForGradlew()

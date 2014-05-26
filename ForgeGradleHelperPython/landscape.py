@@ -5,7 +5,7 @@ import os
 import random
 import locale
 
-def landscape():
+def call():
     encoding = locale.getdefaultlocale()[1]
     treeChars = [u"\u2591", u"\u2591"]
     if encoding == "cp1252":
