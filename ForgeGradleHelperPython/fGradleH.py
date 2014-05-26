@@ -39,5 +39,9 @@ def mainMenu():
         pythonHelper.pause()
         mainMenu()
 
-mainMenu()
-pythonHelper.pause()
+while True:
+    mainMenu()
+    input = raw_input("Continue working? [Y/N] > " + Fore.WHITE)
+    print(Fore.RESET + Style.NORMAL, end="")
+    if input.lower() != "y":
+        break
