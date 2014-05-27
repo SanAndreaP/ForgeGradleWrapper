@@ -2,15 +2,16 @@ from __future__ import print_function
 
 import subprocess
 import webbrowser
-import zipfile
 import os.path
 import urllib2
+import zipfile
 import shutil
 import title
 import json
+import stat
 import time
-import os
 import io
+import os
 
 from colorama import deinit, reinit, Fore, Back, Style
 
@@ -71,6 +72,8 @@ def runGradleTask(percent, callList):
     
 def copyDefBuildGradle():
     shutil.copyfile(os.path.join(gradlePath, "build.gradle"), os.path.join(gradlePath, "src/main/build.gradle"))
+    fileMode = os.stat(os.path.join(gradlePath, "build.gradle"))[stat.ST_MODE]
+    os.chmod(os.path.join(gradlePath, "build.gradle"), fileMode & ~stat.S_IWUSR & ~stat.S_IWGRP & ~stat.S_IWOTH)
     with io.open(os.path.join(gradlePath, "src/main/build.gradle"), mode="a", encoding="utf-8") as buildGradle:
         buildGradle.write(u"\ndependencies {")
         buildGradle.write(u"\n    compile fileTree(dir: 'libs', include: '*.jar')")
@@ -82,7 +85,6 @@ def copyDefBuildGradle():
         buildGradle.write(u"\n    }")
         buildGradle.write(u"\n}\n")
         buildGradle.close()
-
  
 def setupGradle():
     if not runGradleTask(00, ["clean"]):
