@@ -3,12 +3,13 @@
 import os
 import sys
 
+import title
 import buildMod
 import landscape
 import setupForge
 import setupBuild
-import title
 import pythonHelper
+import nothingToSeeHereReallyNopeSoEmptyAndNothingness
 
 from colorama import init, Fore, Back, Style
 
@@ -16,10 +17,11 @@ init()
 
 menuItm = {
         "0" : exit,
-        "1" : setupForge.call,
-        "2" : buildMod.call,
-        "3" : setupBuild.call,
-        "4" : landscape.call
+        "1" : setupForge,
+        "2" : buildMod,
+        "3" : setupBuild,
+        "4" : landscape,
+        "5" : nothingToSeeHereReallyNopeSoEmptyAndNothingness
     }
     
 def mainMenu():
@@ -33,7 +35,7 @@ def mainMenu():
     choice = raw_input("Please enter a number from above > " + Style.BRIGHT + Fore.WHITE)
     print(Fore.RESET + Style.NORMAL, end="")
     if choice in menuItm:
-        menuItm[choice]()
+        menuItm[choice].call()
     else:
         print(Fore.YELLOW + "Invalid input! Try again.")
         pythonHelper.pause()

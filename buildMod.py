@@ -56,4 +56,3 @@ def call():
     choice = pythonHelper.isInteger(choice)
     if choice and choice > 0 and choice <= len(modList):
         buildMod(os.path.join(gradlePath, "src", modList[choice-1]))
-    

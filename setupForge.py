@@ -100,19 +100,19 @@ def setupGradle():
 
 def call():
     title.show("Forge Setup")
-    hasGradle = False
     if not os.path.isfile("gradlew") and not os.path.isfile("forge/gradlew"):
-        input = raw_input(Style.BRIGHT + Fore.YELLOW + "gradlew could not be found! Do you want to set it up here? [Y/N] > " + Fore.WHITE + Style.NORMAL)
+        input = raw_input(Style.BRIGHT + Fore.YELLOW + "ForgeGradle could not be found!\nDo you want to set it up here? [Y/N] > " + Fore.WHITE + Style.NORMAL)
         if input.lower() == "y":
             downloadGradle()
             global gradlePath
             gradlePath = r"forge"
-            hasGradle = True
+            setupGradle()
     else:
         if os.path.isfile("forge/gradlew"):
             global gradlePath
             gradlePath = r"forge"
-        hasGradle = True
-    
-    if hasGradle:
-        setupGradle()
+        print(Style.BRIGHT + Fore.GREEN + "ForgeGradle has been found!" + Fore.WHITE + Style.NORMAL, end="\n\n")
+        print(" [" + Style.BRIGHT + "1" + Style.NORMAL + "] rebuild workspace")
+        print(" [" + Style.BRIGHT + "2" + Style.NORMAL + "] update ForgeGradle", end='\n\n')
+        choice = raw_input("Please enter a number from above > " + Style.BRIGHT + Fore.WHITE)
+        
