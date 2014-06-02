@@ -7,7 +7,7 @@ def pause():
 def clearScr():
     if os.system("CLS") != 0:
         os.system("clear")
-            
+
 def isInteger(s):
     try:
         return int(s)

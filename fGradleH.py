@@ -47,3 +47,5 @@ while True:
     print(Fore.RESET + Style.NORMAL, end="")
     if input.lower() != "y":
         break
+
+os.system("PAUSE")
