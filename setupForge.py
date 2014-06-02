@@ -1,5 +1,6 @@
 from __future__ import print_function
 
+import pythonHelper
 import subprocess
 import webbrowser
 import os.path
@@ -26,7 +27,7 @@ def getVerFromBuildGradle():
         if not matches is None and len(matches) > 0:
             return matches[0]
         else:
-            return None
+            return ""
 
 def updateBuildGradleVer(mod, version):
     with io.open(os.path.join(gradlePath, "src", mod, "build.gradle"), mode="r+", encoding="utf-8") as buildGradle:
@@ -38,6 +39,18 @@ def updateBuildGradleVer(mod, version):
         buildGradle.truncate()
         buildGradle.flush()
         buildGradle.write(output)
+        
+def updateBuildGradles():
+    modList = [f for f in os.listdir(os.path.join(gradlePath, "src")) if not os.path.isfile(os.path.join(gradlePath, "src", f))]
+    print("There are build.gradle files available for following mods:")
+    print("\n".join("- {}".format(v) for k, v in enumerate(modList)))
+    if pythonHelper.getYesNoInput("Want to update the MC version for those as well?"):
+        newVer = getVerFromBuildGradle()
+        for mod in modList:
+            print(Style.BRIGHT + "Updating MC version in mod \"" + mod + "\"" + Style.NORMAL)
+            updateBuildGradleVer(mod, newVer)
+    else:
+        print(Fore.YELLOW + Style.BRIGHT + "You choose not to update the version numbers.\nThis can cause problems! I suggest you update them anyway." + Fore.WHITE + Style.NORMAL)
         
 def downloadGradle():
     print("Reading JSON data... ", end='')
@@ -154,4 +167,4 @@ def call():
             downloadGradle()
             setupGradle()
         elif choice == "3":
-            getVerFromBuildGradle()
+            updateBuildGradles()
