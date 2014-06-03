@@ -9,7 +9,7 @@ clrs = [Fore.RED, Fore.GREEN, Fore.BLUE, Fore.CYAN, Fore.MAGENTA, Fore.YELLOW]
 currClr = None
 
 def show(subtitle=""):
-    pythonHelper.clearScr()
+    pythonHelper.clear_scr()
     global currClr
     if currClr is None:
         currClr = clrs[random.randrange(len(clrs))]

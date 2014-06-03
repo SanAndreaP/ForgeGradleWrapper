@@ -1,51 +1,45 @@
 ﻿from __future__ import print_function
 
-import os
-import sys
-
 import title
 import buildMod
+import colorama
 import landscape
-import setupForge
 import setupBuild
+import setupForge
 import pythonHelper
 import nothingToSeeHereReallyNopeSoEmptyAndNothingness
 
-from colorama import init, Fore, Back, Style
+from collections import OrderedDict
 
-init()
+colorama.init()
 
-menuItm = {
-        "0" : exit,
-        "1" : setupForge,
-        "2" : buildMod,
-        "3" : setupBuild,
-        "4" : landscape,
-        "5" : nothingToSeeHereReallyNopeSoEmptyAndNothingness
-    }
-    
-def mainMenu():
+global menuItm
+menuItm = dict()
+menuItm["0"] = exit
+menuItm["1"] = setupForge.call
+menuItm["2"] = setupBuild.call
+menuItm["3"] = buildMod.call
+menuItm["4"] = landscape.call
+menuItm["5"] = nothingToSeeHereReallyNopeSoEmptyAndNothingness.call
+
+global menuTxt
+menuTxt = OrderedDict()
+menuTxt["1"] = "setup forge"
+menuTxt["2"] = "setup mod building"
+menuTxt["3"] = "build mod"
+menuTxt["0"] = "exit"
+
+
+def mainmenu():
     title.show()
-    
-    print(" [" + Style.BRIGHT + "1" + Style.NORMAL + "] setup forge")
-    print(" [" + Style.BRIGHT + "2" + Style.NORMAL + "] build mod")
-    print(" [" + Style.BRIGHT + "3" + Style.NORMAL + "] setup / edit build.gradle for mod")
-    print(" [" + Style.BRIGHT + "0" + Style.NORMAL + "] exit", end='\n\n')
-    
-    choice = raw_input("Please enter a number from above > " + Style.BRIGHT + Fore.WHITE)
-    print(Fore.RESET + Style.NORMAL, end="")
-    if choice in menuItm:
-        menuItm[choice].call()
-    else:
-        print(Fore.YELLOW + "Invalid input! Try again.")
-        pythonHelper.pause()
-        mainMenu()
+    choice = pythonHelper.printmenu_and_getchoice("Menu:", menuTxt, "Please choose an item from above")
+    menuItm[choice]()
 
 while True:
-    mainMenu()
-    input = raw_input("Continue working? [Y/N] > " + Fore.WHITE)
-    print(Fore.RESET + Style.NORMAL, end="")
-    if input.lower() != "y":
+    mainmenu()
+    if not pythonHelper.get_yesno_input("Continue working?"):
         break
 
-os.system("PAUSE")
+pythonHelper.pause()
+
+colorama.deinit()

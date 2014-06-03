@@ -1,25 +1,26 @@
 from __future__ import print_function
+from collections import OrderedDict
 
-import pythonHelper
 import subprocess
 import webbrowser
-import os.path
 import urllib2
 import zipfile
 import shutil
-import title
 import json
 import stat
-import time
 import io
 import os
 import re
 
-from colorama import deinit, reinit, Fore, Back, Style
+import pythonHelper
+import title
+from colorama import Fore, Style
+
 
 gradlePath = r"."
 
-def getVerFromBuildGradle():
+
+def getverfrombuildgradle():
     with io.open(os.path.join(gradlePath, "build.gradle"), mode="r", encoding="utf-8") as buildGradle:
         content = buildGradle.read()
         pattern = re.compile(r"minecraft\s*\{.*?version.*?=.*?\"(.*?)\"", re.DOTALL | re.UNICODE)
@@ -29,7 +30,8 @@ def getVerFromBuildGradle():
         else:
             return ""
 
-def updateBuildGradleVer(mod, version):
+
+def updatebuildgradlever(mod, version):
     with io.open(os.path.join(gradlePath, "src", mod, "build.gradle"), mode="r+", encoding="utf-8") as buildGradle:
         content = buildGradle.read()
         pattern = re.compile(r"(.*?minecraft\s*\{.*?version.*?=.*?\").*?(\".*)", re.DOTALL | re.UNICODE | re.MULTILINE)
@@ -39,87 +41,89 @@ def updateBuildGradleVer(mod, version):
         buildGradle.truncate()
         buildGradle.flush()
         buildGradle.write(output)
-        
-def updateBuildGradles():
-    modList = [f for f in os.listdir(os.path.join(gradlePath, "src")) if not os.path.isfile(os.path.join(gradlePath, "src", f))]
+
+
+def updatebuildgradles():
+    modlist = [f for f in os.listdir(os.path.join(gradlePath, "src"))
+               if not os.path.isfile(os.path.join(gradlePath, "src", f))]
     print("There are build.gradle files available for following mods:")
-    print("\n".join("- {}".format(v) for k, v in enumerate(modList)))
-    if pythonHelper.getYesNoInput("Want to update the MC version for those as well?"):
-        newVer = getVerFromBuildGradle()
-        for mod in modList:
+    print("\n".join("- {}".format(v) for k, v in enumerate(modlist)))
+    if pythonHelper.get_yesno_input("Want to update the MC version for those as well?"):
+        newver = getverfrombuildgradle()
+        for mod in modlist:
             print(Style.BRIGHT + "Updating MC version in mod \"" + mod + "\"" + Style.NORMAL)
-            updateBuildGradleVer(mod, newVer)
+            updatebuildgradlever(mod, newver)
     else:
-        print(Fore.YELLOW + Style.BRIGHT + "You choose not to update the version numbers.\nThis can cause problems! I suggest you update them anyway." + Fore.WHITE + Style.NORMAL)
-        
-def downloadGradle():
-    print("Reading JSON data... ", end='')
+        print(Fore.YELLOW + Style.BRIGHT + "You choose not to update the version numbers.")
+        print("This can cause problems! I suggest you update them anyway." + Fore.WHITE + Style.NORMAL)
+
+
+def downloadgradle():
+    print("Reading JSON data... ", end="")
     response = urllib2.urlopen("http://files.minecraftforge.net/maven/net/minecraftforge/forge/json")
-    jsonData = json.loads(response.read())
+    jsondata = json.loads(response.read())
     packages = {}
-    for pkg in jsonData["promos"]:
-        id = jsonData["promos"][pkg]
-        if not id in packages and id != 965:        # build 965 is NOT recommended! It ships with no gradle!
-            packages[id] = pkg
+    for pkg in jsondata["promos"]:
+        forgebuild = jsondata["promos"][pkg]
+        if not forgebuild in packages and forgebuild != 965:  # build 965 is NOT recommended! It ships with no gradle!
+            packages[str(forgebuild)] = pkg
     print("[Done]")
 
-    print("Following packages are recommended:", end="\n\n")
-    for id in packages:
-        print(" [" + Style.BRIGHT + str(id) + Style.NORMAL + "] " + packages[id])
-    print
-    input = raw_input("\nPlease enter a preferred build number to continue > " + Style.BRIGHT)
-    
+    choice = pythonHelper.printmenu_and_getchoice("Following packages are recommended", packages,
+                                                "Please enter a preferred build number to continue")
+
     if os.path.isfile(os.path.join(gradlePath, "build.gradle")):
-        fileMode = os.stat(os.path.join(gradlePath, "build.gradle"))[stat.ST_MODE]
-        os.chmod(os.path.join(gradlePath, "build.gradle"), fileMode | stat.S_IWUSR | stat.S_IWGRP | stat.S_IWOTH)
-    
-    print(Style.NORMAL + "Downloading Forge... ", end='')
-    forgeBuild = jsonData["number"][input]["mcversion"] + "-" + jsonData["number"][input]["version"]
-    response = urllib2.urlopen(jsonData["webpath"] + "/" + forgeBuild + "/forge-" + forgeBuild + "-src.zip")
-    zipData = zipfile.ZipFile(io.BytesIO(response.read()))
+        filemode = os.stat(os.path.join(gradlePath, "build.gradle"))[stat.ST_MODE]
+        os.chmod(os.path.join(gradlePath, "build.gradle"), filemode | stat.S_IWUSR | stat.S_IWGRP | stat.S_IWOTH)
+
+    print(Style.NORMAL + "Downloading Forge... ", end="")
+    forgebuild = jsondata["number"][choice]["mcversion"] + "-" + jsondata["number"][choice]["version"]
+    response = urllib2.urlopen(jsondata["webpath"] + "/" + forgebuild + "/forge-" + forgebuild + "-src.zip")
+    zipdata = zipfile.ZipFile(io.BytesIO(response.read()))
     print("[Done]")
-    
-    print("Extracting Zip... ", end='')
-    zipData.extractall(r"forge")
+
+    print("Extracting Zip... ", end="")
+    zipdata.extractall(r"forge")
     print("[Done]")
-    
+
     print("Forge successfully downloaded to /forge/")
 
-def runGradleTask(percent, callList):
+
+def rungradletask(percent, calllist):
     output = 0
     print("\rSetup ForgeGradle... " + str(percent) + "%", end='')
     try:
-        execData = [os.path.join(os.getcwd(), gradlePath, "gradlew")]
-        execData.extend(callList)
-        output = subprocess.call(execData, creationflags=subprocess.CREATE_NEW_CONSOLE, cwd=gradlePath)
-    except Exception:
+        execdata = [os.path.join(os.getcwd(), gradlePath, "gradlew")]
+        execdata.extend(calllist)
+        subprocess.check_call(execdata, creationflags=subprocess.CREATE_NEW_CONSOLE, cwd=gradlePath)
+    except subprocess.CalledProcessError:
         try:
-            execData = [os.path.join(os.getcwd(), gradlePath, "gradlew.bat")]
-            execData.extend(callList)
-            output = subprocess.call(execData, creationflags=subprocess.CREATE_NEW_CONSOLE, cwd=gradlePath)
-        except Exception as ex:
+            execdata = [os.path.join(os.getcwd(), gradlePath, "gradlew.bat")]
+            execdata.extend(calllist)
+            subprocess.check_call(execdata, creationflags=subprocess.CREATE_NEW_CONSOLE, cwd=gradlePath)
+        except subprocess.CalledProcessError as ex:
+            output = ex.returncode
             print(ex)
 
     if output != 0:
-        print(Fore.RED + Style.BRIGHT + "\nSetup failed with return code " + hex(output) + "!")
-        input = raw_input("Do you want to show the log file? [Y/N] > " + Fore.WHITE)
-        print(Fore.RESET + Style.NORMAL, end="")
-        if input.lower() == "y":
+        print(Fore.RED + Style.BRIGHT + "\nSetup failed with return code " + hex(output) + "!" + Fore.RESET)
+        if pythonHelper.get_yesno_input("Do you want to show the log file?"):
             webbrowser.open("file://" + os.path.join(os.getcwd(), gradlePath, ".gradle/gradle.log"))
         return False
     return True
-    
-def copyDefBuildGradle():
+
+
+def copydefbuildgradle():
     print("Copy build.gradle...", end="")
     if os.path.isfile(os.path.join(gradlePath, "src/main/build.gradle")):
         print("\rbuild.gradle already copied! Skipping.")
-        fileMode = os.stat(os.path.join(gradlePath, "build.gradle"))[stat.ST_MODE]
-        os.chmod(os.path.join(gradlePath, "build.gradle"), fileMode & ~stat.S_IWUSR & ~stat.S_IWGRP & ~stat.S_IWOTH)
+        filemode = os.stat(os.path.join(gradlePath, "build.gradle"))[stat.ST_MODE]
+        os.chmod(os.path.join(gradlePath, "build.gradle"), filemode & ~stat.S_IWUSR & ~stat.S_IWGRP & ~stat.S_IWOTH)
         return
-    
+
     shutil.copyfile(os.path.join(gradlePath, "build.gradle"), os.path.join(gradlePath, "src/main/build.gradle"))
-    fileMode = os.stat(os.path.join(gradlePath, "build.gradle"))[stat.ST_MODE]
-    os.chmod(os.path.join(gradlePath, "build.gradle"), fileMode & ~stat.S_IWUSR & ~stat.S_IWGRP & ~stat.S_IWOTH)
+    filemode = os.stat(os.path.join(gradlePath, "build.gradle"))[stat.ST_MODE]
+    os.chmod(os.path.join(gradlePath, "build.gradle"), filemode & ~stat.S_IWUSR & ~stat.S_IWGRP & ~stat.S_IWOTH)
     with io.open(os.path.join(gradlePath, "src/main/build.gradle"), mode="a", encoding="utf-8") as buildGradle:
         buildGradle.write(u"\ndependencies {")
         buildGradle.write(u"\n    compile fileTree(dir: 'libs', include: '*.jar')")
@@ -131,40 +135,43 @@ def copyDefBuildGradle():
         buildGradle.write(u"\n    }")
         buildGradle.write(u"\n}\n")
         buildGradle.close()
- 
-def setupGradle():
-    copyDefBuildGradle()
-    if not runGradleTask(00, ["clean"]):
+
+
+def setupgradle():
+    copydefbuildgradle()
+    if not rungradletask(00, ["clean"]):
         return
-    if not runGradleTask(25, ["cleanCache"]):
+    if not rungradletask(25, ["cleanCache"]):
         return
-    if not runGradleTask(50, ["setupDecompWorkspace", "--refresh-dependencies", "--stacktrace"]):
+    if not rungradletask(50, ["setupDecompWorkspace", "--refresh-dependencies", "--stacktrace"]):
         return
-    if not runGradleTask(75, ["eclipse"]):
+    if not rungradletask(75, ["eclipse"]):
         return
     print("\rSetup ForgeGradle... [Done]")
+
 
 def call():
     title.show("Forge Setup")
     if not os.path.isfile("gradlew") and not os.path.isfile("forge/gradlew"):
-        input = raw_input(Style.BRIGHT + Fore.YELLOW + "ForgeGradle could not be found!\nDo you want to set it up here? [Y/N] > " + Fore.WHITE + Style.NORMAL)
-        if input.lower() == "y":
-            downloadGradle()
+        print(Style.BRIGHT + Fore.YELLOW + "ForgeGradle could not be found!" + Fore.RESET + Style.NORMAL)
+        if pythonHelper.get_yesno_input("Do you want to set it up here?"):
+            downloadgradle()
             global gradlePath
             gradlePath = r"forge"
-            setupGradle()
+            setupgradle()
     else:
         if os.path.isfile("forge/gradlew"):
             global gradlePath
             gradlePath = r"forge"
-        print(Style.BRIGHT + Fore.GREEN + "ForgeGradle has been found!" + Fore.WHITE + Style.NORMAL, end="\n\n")
-        print(" [" + Style.BRIGHT + "1" + Style.NORMAL + "] rebuild workspace")
-        print(" [" + Style.BRIGHT + "2" + Style.NORMAL + "] update ForgeGradle", end='\n\n')
-        choice = raw_input("Please enter a number from above > " + Style.BRIGHT + Fore.WHITE)
+        menuitems = OrderedDict()
+        menuitems["1"] = "rebuild workspace"
+        menuitems["2"] = "update ForgeGradle"
+        print(Style.BRIGHT + Fore.GREEN + "ForgeGradle has been found!" + Fore.RESET + Style.NORMAL, end="")
+        choice = pythonHelper.printmenu_and_getchoice("", menuitems, "Please choose an option from above")
         if choice == "1":
-            setupGradle()
+            setupgradle()
         elif choice == "2":
-            downloadGradle()
-            setupGradle()
+            downloadgradle()
+            setupgradle()
         elif choice == "3":
-            updateBuildGradles()
+            updatebuildgradles()
