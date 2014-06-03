@@ -40,6 +40,4 @@ while True:
     if not pythonHelper.get_yesno_input("Continue working?"):
         break
 
-pythonHelper.pause()
-
 colorama.deinit()

@@ -45,13 +45,14 @@ def call():
         print(Fore.RED + Style.BRIGHT + "Gradle could not be found!")
         print("Please setup Forge first and then try to build your mod again!" + Fore.RESET + Style.NORMAL)
         return
+
     modlist = [f for f in os.listdir(os.path.join(gradlePath, "src"))
                if not os.path.isfile(os.path.join(gradlePath, "src", f))]
     menulist = OrderedDict()
     for idx, val in enumerate(modlist):
         menulist[str(idx+1)] = val
     menulist["0"] = "[Abort]"
-    print(menulist)
+
     choice = pythonHelper.is_integer(
         pythonHelper.printmenu_and_getchoice("There are following mods available for building", menulist,
                                              "Please choose a mod to build")
