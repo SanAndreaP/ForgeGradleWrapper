@@ -1,7 +1,7 @@
 from __future__ import print_function
 
-import os
 import math
+import os
 
 from colorama import Style
 
@@ -34,8 +34,12 @@ def get_yesno_input(s):
 def printmenu_and_getchoice(menu_title, menu_items, menu_choice):
     print(Style.NORMAL + menu_title)
     for k in menu_items:
-        print(" [" + Style.BRIGHT + k + Style.NORMAL + "] " + menu_items[k])
+        val = menu_items[k]
+        if isinstance(val, tuple):
+            val = val[0]
+        print(" [" + Style.BRIGHT + k + Style.NORMAL + "] " + val)
     usr_input = raw_input(menu_choice + " > " + Style.BRIGHT)
     while not usr_input in menu_items:
         usr_input = raw_input(Style.NORMAL + " "*len(menu_choice) + " > " + Style.BRIGHT)
+    print(Style.NORMAL, end="")
     return usr_input

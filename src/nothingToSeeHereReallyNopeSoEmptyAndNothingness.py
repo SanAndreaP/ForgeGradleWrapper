@@ -1,10 +1,9 @@
 from __future__ import print_function
 
-from colorama import deinit, reinit, Fore, Back, Style
+from colorama import Fore, Style
 import os
 import time
 import random
-import locale
 
 playerHealth = 100.0
 enemyHealth = 100.0
@@ -15,41 +14,42 @@ enemyName = ""
 isPlayerTurn = False
 
 playerAttacks = [
-        ["Scratch", 0.1, 1.0],
-        ["Kick", 0.5, 4.0],
-        ["Punch", 0.4, 3.5],
-        ["Fireball", 8.0, 65.0],
-        ["Lightbeam", 10.0, 80.5]
-    ]
+    ("Scratch", 0.1, 1.0),
+    ("Kick", 0.5, 4.0),
+    ("Punch", 0.4, 3.5),
+    ("Fireball", 8.0, 65.0),
+    ("Lightbeam", 10.0, 80.5)
+]
     
 enemyAttacks = [
-        ["Stab", 0.1, 1.0],
-        ["Choke", 0.5, 4.0],
-        ["Whip", 0.4, 3.5],
-        ["Shockwave", 8.0, 65.0],
-        ["Dark Neurosplitter", 10.0, 80.5]
-    ]
+    ("Stab", 0.1, 1.0),
+    ("Choke", 0.5, 4.0),
+    ("Whip", 0.4, 3.5),
+    ("Shockwave", 8.0, 65.0),
+    ("Dark Neurosplitter", 10.0, 80.5)
+]
     
 enemyNames = [
-        "Lucius",
-        "Deadskull",
-        "Earthburn",
-        "Grossbone The Hunter",
-        "Snowrivet The Tracker",
-        "Scareghast",
-        "Beastshiver The Rancid",
-        "Shiverterror",
-        "Shockghost The Cremator",
-        "Rootstrike The Grotesque"
-    ]
-    
-def doEnemyAttack():
+    "Lucius",
+    "Deadskull",
+    "Earthburn",
+    "Grossbone The Hunter",
+    "Snowrivet The Tracker",
+    "Scareghast",
+    "Beastshiver The Rancid",
+    "Shiverterror",
+    "Shockghost The Cremator",
+    "Rootstrike The Grotesque"
+]
+
+
+def do_enemy_attack():
     global enemyStamina, playerHealth
     
     time.sleep(1)
     attempts = 0
     attack = False
-    miss = random.randint(0,1) == 1
+    miss = random.randint(0, 1) == 1
     while attempts < 3:
         attack = enemyAttacks[random.randrange(len(enemyAttacks))]
         if enemyStamina < attack[1]:
@@ -63,13 +63,14 @@ def doEnemyAttack():
         if miss:
             print(enemyName + " missed!")
         else:
-            attackPts = float("{0:.2f}".format(random.uniform(attack[2] - attack[2] * 0.1, attack[2])))
-            print("It did " + str(attackPts) + " Points of damage!")
-            playerHealth -= attackPts
+            attack_pts = float("{0:.2f}".format(random.uniform(attack[2] - attack[2] * 0.1, attack[2])))
+            print("It did " + str(attack_pts) + " Points of damage!")
+            playerHealth -= attack_pts
         enemyStamina -= attack[1]
     os.system("PAUSE")
 
-def showUI():
+
+def show_ui():
     os.system("CLS")
     print(Style.BRIGHT, end="")
     
@@ -84,8 +85,9 @@ def showUI():
     if isPlayerTurn:
         pass
     else:
-        doEnemyAttack()
-    
+        do_enemy_attack()
+
+
 def call():
     global enemyName, isPlayerTurn
     
@@ -96,6 +98,5 @@ def call():
     os.system("PAUSE")
     print("")
     while playerHealth > 0.0 and enemyHealth > 0.0:
-        showUI()
+        show_ui()
         isPlayerTurn = not isPlayerTurn
-        

@@ -1,19 +1,19 @@
 ﻿from __future__ import print_function
 
-import title
-import buildMod
-import colorama
-import landscape
-import setupBuild
-import setupForge
+
 import pythonHelper
-import nothingToSeeHereReallyNopeSoEmptyAndNothingness
+import colorama
 
 from collections import OrderedDict
+from src import setupForge, nothingToSeeHereReallyNopeSoEmptyAndNothingness, config, setupBuild, buildMod, landscape, \
+    title
+
+__author__ = 'SanAndreasP'
+
 
 colorama.init()
+config.read_config()
 
-global menuItm
 menuItm = dict()
 menuItm["0"] = exit
 menuItm["1"] = setupForge.call
@@ -22,7 +22,6 @@ menuItm["3"] = buildMod.call
 menuItm["4"] = landscape.call
 menuItm["5"] = nothingToSeeHereReallyNopeSoEmptyAndNothingness.call
 
-global menuTxt
 menuTxt = OrderedDict()
 menuTxt["1"] = "setup forge"
 menuTxt["2"] = "setup mod building"
@@ -31,6 +30,7 @@ menuTxt["0"] = "exit"
 
 
 def mainmenu():
+    global menuItm, menuTxt
     title.show()
     choice = pythonHelper.printmenu_and_getchoice("Menu:", menuTxt, "Please choose an item from above")
     menuItm[choice]()
@@ -41,3 +41,4 @@ while True:
         break
 
 colorama.deinit()
+config.write_config()
