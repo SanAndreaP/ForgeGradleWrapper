@@ -1,7 +1,9 @@
 from __future__ import print_function
 
 from collections import OrderedDict
+import re
 import subprocess
+from colorama.ansi import Fore, Style
 
 import pythonHelper
 import config
@@ -24,12 +26,20 @@ def call():
 
     wrk_msg = WorkingMsg("Checking Java Compiler")
     wrk_msg.start()
+    proc = None
     try:
-        proc = subprocess.Popen("javac -version", stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
-        proc_out, proc_err = proc.communicate()
-        wrk_msg._done_msg = proc_out
+        proc = subprocess.Popen("javac -version", stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        proc_out = proc.communicate()
+        wrk_msg._done_msg = proc_out[0]
+        wrk_msg.set_output(proc.returncode)
+        wrk_msg.join()
+        config.data[config.JAVA_VER] = re.compile(r"javac ([0-9]+?\.[0-9]+?)\..*").match(proc_out[0]).group(1)
     except Exception as ex:
-        wrk_msg._error_msg = ex.__str__()
-        wrk_msg.set_output(0x01)
-    wrk_msg.join()
+        if proc is not None:
+            wrk_msg.set_output(proc.returncode)
+        else:
+            wrk_msg.set_output(0x01)
+        wrk_msg.join()
+        print(Fore.RED + Style.BRIGHT + "There was an error trying to get the Java Compiler version:")
+        print(str(ex) + Fore.RESET + Style.NORMAL)
     pythonHelper.pause()

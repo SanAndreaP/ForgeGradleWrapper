@@ -23,8 +23,7 @@ __author__ = 'SanAndreasP'
 def get_ver_from_buildgradle():
     with io.open(os.path.join(config.data[config.GRADLE_PATH], "build.gradle"), encoding="utf-8") as buildGradle:
         content = buildGradle.read()
-        pattern = re.compile(r"minecraft\s*\{.*?version.*?=.*?\"(.*?)\"", re.DOTALL | re.UNICODE)
-        matches = pattern.findall(content)
+        matches = re.compile(r"minecraft\s*\{.*?version.*?=.*?\"(.*?)\"", re.DOTALL | re.UNICODE).findall(content)
         if not matches is None and len(matches) > 0:
             return matches[0]
         else:
