@@ -1,9 +1,11 @@
 from __future__ import print_function
 
-from colorama import Fore, Style
 import os
 import time
 import random
+
+from colorama import Fore, Style
+
 
 playerHealth = 100.0
 enemyHealth = 100.0
@@ -20,7 +22,7 @@ playerAttacks = [
     ("Fireball", 8.0, 65.0),
     ("Lightbeam", 10.0, 80.5)
 ]
-    
+
 enemyAttacks = [
     ("Stab", 0.1, 1.0),
     ("Choke", 0.5, 4.0),
@@ -28,7 +30,7 @@ enemyAttacks = [
     ("Shockwave", 8.0, 65.0),
     ("Dark Neurosplitter", 10.0, 80.5)
 ]
-    
+
 enemyNames = [
     "Lucius",
     "Deadskull",
@@ -45,7 +47,7 @@ enemyNames = [
 
 def do_enemy_attack():
     global enemyStamina, playerHealth
-    
+
     time.sleep(1)
     attempts = 0
     attack = False
@@ -73,7 +75,7 @@ def do_enemy_attack():
 def show_ui():
     os.system("CLS")
     print(Style.BRIGHT, end="")
-    
+
     print(Fore.GREEN + "Players health: " + Fore.WHITE + str(playerHealth))
     print(Fore.GREEN + "Players stamina: " + Fore.WHITE + str(playerStamina))
     print(Fore.RED + "Enemys health: " + Fore.WHITE + str(enemyHealth))
@@ -81,7 +83,7 @@ def show_ui():
     print("")
     print("It's " + ("the Players" if isPlayerTurn else (enemyName + "'s")) + " turn!")
     print("")
-    
+
     if isPlayerTurn:
         pass
     else:
@@ -90,9 +92,9 @@ def show_ui():
 
 def call():
     global enemyName, isPlayerTurn
-    
+
     enemyName = enemyNames[random.randrange(len(enemyNames))]
-    isPlayerTurn = random.randint(0,1) == 1
+    isPlayerTurn = random.randint(0, 1) == 1
 
     print("Your enemy is called '" + enemyName + "'")
     os.system("PAUSE")

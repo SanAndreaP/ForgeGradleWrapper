@@ -5,6 +5,7 @@ import os
 
 from colorama import Style
 
+
 __author__ = 'SanAndreasP'
 
 
@@ -28,7 +29,7 @@ def is_integer(s):
 def get_yesno_input(s):
     usr_input = raw_input(Style.NORMAL + s + " [Y/N] > " + Style.BRIGHT)
     while len(usr_input) == 0 or not usr_input.lower() in "yn":
-        usr_input = raw_input(Style.NORMAL + " "*len(s + " [Y/N]") + " > " + Style.BRIGHT)
+        usr_input = raw_input(Style.NORMAL + " " * len(s + " [Y/N]") + " > " + Style.BRIGHT)
     print(Style.NORMAL, end="")
     return usr_input.lower() == "y"
 
@@ -42,6 +43,6 @@ def menu_with_choice(menu_title, menu_items, menu_choice):
         print(" [" + Style.BRIGHT + k + Style.NORMAL + "] " + val)
     usr_input = raw_input(menu_choice + " > " + Style.BRIGHT)
     while not usr_input in menu_items:
-        usr_input = raw_input(Style.NORMAL + " "*len(menu_choice) + " > " + Style.BRIGHT)
+        usr_input = raw_input(Style.NORMAL + " " * len(menu_choice) + " > " + Style.BRIGHT)
     print(Style.NORMAL, end="")
     return usr_input

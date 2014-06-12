@@ -67,7 +67,7 @@ def download_gradle():
     packages = {}
     for pkg in jsondata["promos"]:
         forgebuild = jsondata["promos"][pkg]
-        if not forgebuild in packages and forgebuild != 965:  # build 965 is NOT recommended! It ships with no gradle!
+        if not forgebuild in packages and forgebuild != 965:    # build 965 is NOT recommended! It ships with no gradle!
             packages[str(forgebuild)] = pkg
     print("[Done]")
 

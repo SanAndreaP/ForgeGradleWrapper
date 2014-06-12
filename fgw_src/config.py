@@ -4,6 +4,7 @@ import os
 
 from fgw_src import firstStart
 
+
 __author__ = 'SanAndreasP'
 
 # constants for config values

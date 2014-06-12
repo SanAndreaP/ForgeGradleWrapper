@@ -1,9 +1,10 @@
 ﻿from __future__ import print_function
 
-from colorama import Fore, Back, Style
 import os
 import random
 import locale
+
+from colorama import Fore, Back, Style
 
 
 def call():
@@ -22,7 +23,8 @@ def call():
     for y in range(0, 25):
         for x in range(0, 79):
             if [y, x] in trees:
-                print(Back.GREEN+Fore.RED+Style.NORMAL + tree_chars[random.randrange(2)] + Back.RESET+Fore.GREEN+Style.BRIGHT, end='')
+                print(Back.GREEN + Fore.RED + Style.NORMAL + tree_chars[random.randrange(2)] + Back.RESET
+                      + Fore.GREEN + Style.BRIGHT, end='')
             else:
                 print(u"\u2591", end='')
         if y < 24:

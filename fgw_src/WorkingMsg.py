@@ -2,7 +2,9 @@ from __future__ import print_function
 
 import threading
 import time
+
 from colorama.ansi import Fore, Style
+
 
 __author__ = 'SanAndreasP'
 
@@ -23,7 +25,7 @@ class WorkingMsg(threading.Thread):
     def run(self):
         i = 0
         while not self._stopevent.isSet():
-            print("\r" + self._task_name + "."*i + " "*(3-i), end='')
+            print("\r" + self._task_name + "." * i + " " * (3 - i), end='')
             i += 1
             if i > 3:
                 i = 0

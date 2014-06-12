@@ -24,7 +24,7 @@ def call():
                if not os.path.isfile(os.path.join(gradlePath, "fgw_src", f))]
     menulist = OrderedDict()
     for idx, val in enumerate(modlist):
-        menulist[str(idx+1)] = val
+        menulist[str(idx + 1)] = val
     menulist["0"] = "[Abort]"
 
     choice = pythonHelper.is_integer(
@@ -32,7 +32,7 @@ def call():
                                       "Please choose a mod to build")
     )
     if 0 < choice <= len(modlist):
-        build_mod(os.path.join(gradlePath, "fgw_src", modlist[choice-1]))
+        build_mod(os.path.join(gradlePath, "fgw_src", modlist[choice - 1]))
 
 
 def build_mod(mod):

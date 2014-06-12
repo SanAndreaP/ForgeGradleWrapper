@@ -3,8 +3,8 @@
 from collections import OrderedDict
 
 import colorama
-from fgw_src import setupForge, nothingToSeeHereReallyNopeSoEmptyAndNothingness, config, setupBuild, buildMod, landscape, \
-    title, pythonHelper
+from fgw_src import setupForge, nothingToSeeHereReallyNopeSoEmptyAndNothingness, config, setupBuild, buildMod, \
+    landscape, title, pythonHelper
 
 __author__ = 'SanAndreasP'
 
