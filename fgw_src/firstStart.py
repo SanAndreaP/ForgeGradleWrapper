@@ -3,12 +3,12 @@ from __future__ import print_function
 from collections import OrderedDict
 import re
 import subprocess
-from colorama.ansi import Fore, Style
 
-import pythonHelper
+from colorama.ansi import Fore, Style
 import config
-from src import title, help
-from src.WorkingMsg import WorkingMsg
+from fgw_src import title, help, pythonHelper
+from fgw_src.WorkingMsg import WorkingMsg
+
 
 __author__ = 'SanAndreasP'
 

@@ -11,11 +11,11 @@ import io
 import os
 import re
 
-import pythonHelper
-from src import config
-from src.WorkingMsg import WorkingMsg
+from fgw_src import config, pythonHelper
+from fgw_src.WorkingMsg import WorkingMsg
 import title
 from colorama import Fore, Style
+
 
 __author__ = 'SanAndreasP'
 
@@ -32,7 +32,7 @@ def get_ver_from_buildgradle():
 
 def update_buildgradle_ver(mod, version):
     gradle_path = config.data[config.GRADLE_PATH]
-    with io.open(os.path.join(gradle_path, "src", mod, "build.gradle"), mode="r+", encoding="utf-8") as buildGradle:
+    with io.open(os.path.join(gradle_path, "fgw_src", mod, "build.gradle"), mode="r+", encoding="utf-8") as buildGradle:
         content = buildGradle.read()
         pattern = re.compile(r"(.*?minecraft\s*\{.*?version.*?=.*?\").*?(\".*)", re.DOTALL | re.UNICODE | re.MULTILINE)
         matcher = pattern.match(content)
@@ -45,8 +45,8 @@ def update_buildgradle_ver(mod, version):
 
 def update_buildgradles():
     gradle_path = config.data[config.GRADLE_PATH]
-    modlist = [f for f in os.listdir(os.path.join(gradle_path, "src"))
-               if not os.path.isfile(os.path.join(gradle_path, "src", f))]
+    modlist = [f for f in os.listdir(os.path.join(gradle_path, "fgw_src"))
+               if not os.path.isfile(os.path.join(gradle_path, "fgw_src", f))]
     print("There are build.gradle files available for following mods:")
     print("\n".join("- {}".format(v) for k, v in enumerate(modlist)))
     if pythonHelper.get_yesno_input("Want to update the MC version for those as well?"):
@@ -80,7 +80,7 @@ def download_gradle():
 
     print(Style.NORMAL + "Downloading Forge... ", end="")
     forgebuild = jsondata["number"][choice]["mcversion"] + "-" + jsondata["number"][choice]["version"]
-    response = urllib2.urlopen(jsondata["webpath"] + "/" + forgebuild + "/forge-" + forgebuild + "-src.zip")
+    response = urllib2.urlopen(jsondata["webpath"] + "/" + forgebuild + "/forge-" + forgebuild + "-fgw_src.zip")
     zipdata = zipfile.ZipFile(io.BytesIO(response.read()))
     print("[Done]")
 
@@ -127,16 +127,16 @@ def run_gradle_task(calllist):
 def copy_def_buildgradle():
     print("Copy build.gradle...", end="")
     gradle_path = config.data[config.GRADLE_PATH]
-    if os.path.isfile(os.path.join(gradle_path, "src/main/build.gradle")):
+    if os.path.isfile(os.path.join(gradle_path, "fgw_src/main/build.gradle")):
         print("\rbuild.gradle already copied! Skipping.")
         filemode = os.stat(os.path.join(gradle_path, "build.gradle"))[stat.ST_MODE]
         os.chmod(os.path.join(gradle_path, "build.gradle"), filemode & ~stat.S_IWUSR & ~stat.S_IWGRP & ~stat.S_IWOTH)
         return
 
-    shutil.copyfile(os.path.join(gradle_path, "build.gradle"), os.path.join(gradle_path, "src/main/build.gradle"))
+    shutil.copyfile(os.path.join(gradle_path, "build.gradle"), os.path.join(gradle_path, "fgw_src/main/build.gradle"))
     filemode = os.stat(os.path.join(gradle_path, "build.gradle"))[stat.ST_MODE]
     os.chmod(os.path.join(gradle_path, "build.gradle"), filemode & ~stat.S_IWUSR & ~stat.S_IWGRP & ~stat.S_IWOTH)
-    with io.open(os.path.join(gradle_path, "src/main/build.gradle"), mode="a", encoding="utf-8") as buildGradle:
+    with io.open(os.path.join(gradle_path, "fgw_src/main/build.gradle"), mode="a", encoding="utf-8") as buildGradle:
         buildGradle.write(u"\ndependencies {")
         buildGradle.write(u"\n    compile fileTree(dir: 'libs', include: '*.jar')")
         buildGradle.write(u"\n}\n")

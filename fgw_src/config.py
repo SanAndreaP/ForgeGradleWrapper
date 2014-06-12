@@ -2,7 +2,7 @@ import json
 import io
 import os
 
-from src import firstStart
+from fgw_src import firstStart
 
 __author__ = 'SanAndreasP'
 

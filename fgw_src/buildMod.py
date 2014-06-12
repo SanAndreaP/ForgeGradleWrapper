@@ -5,8 +5,7 @@ import webbrowser
 import os
 from collections import OrderedDict
 
-import pythonHelper
-from src import title
+from fgw_src import title, pythonHelper
 from colorama import Fore, Style
 
 
@@ -21,8 +20,8 @@ def call():
         print("Please setup Forge first and then try to build your mod again!" + Fore.RESET + Style.NORMAL)
         return
 
-    modlist = [f for f in os.listdir(os.path.join(gradlePath, "src"))
-               if not os.path.isfile(os.path.join(gradlePath, "src", f))]
+    modlist = [f for f in os.listdir(os.path.join(gradlePath, "fgw_src"))
+               if not os.path.isfile(os.path.join(gradlePath, "fgw_src", f))]
     menulist = OrderedDict()
     for idx, val in enumerate(modlist):
         menulist[str(idx+1)] = val
@@ -33,7 +32,7 @@ def call():
                                       "Please choose a mod to build")
     )
     if 0 < choice <= len(modlist):
-        build_mod(os.path.join(gradlePath, "src", modlist[choice-1]))
+        build_mod(os.path.join(gradlePath, "fgw_src", modlist[choice-1]))
 
 
 def build_mod(mod):

@@ -1,8 +1,7 @@
 from __future__ import print_function
 
 from colorama import Style
-import pythonHelper
-from src import title
+from fgw_src import title, pythonHelper
 
 __author__ = 'SanAndreasP'
 

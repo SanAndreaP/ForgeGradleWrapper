@@ -1,7 +1,6 @@
 from collections import OrderedDict
 
-import pythonHelper
-from src import title
+from fgw_src import title, pythonHelper
 
 
 def call():

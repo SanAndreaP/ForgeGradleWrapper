@@ -3,7 +3,7 @@ from __future__ import print_function
 import random
 
 from colorama import Fore, Style
-import pythonHelper
+from fgw_src import pythonHelper
 
 clrs = [Fore.RED, Fore.GREEN, Fore.BLUE, Fore.CYAN, Fore.MAGENTA, Fore.YELLOW]
 currClr = None

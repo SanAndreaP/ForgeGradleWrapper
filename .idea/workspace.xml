@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b6be539-34c2-4f9b-9412-e94e8b0b89a0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/help.py" />
-      <change type="DELETED" beforePath="C:\Stuff\C++ Projects\ForgeGradleWrapper\config.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/buildMod.py" afterPath="$PROJECT_DIR$/src/buildMod.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fgw_src/buildMod.py" afterPath="$PROJECT_DIR$/fgw_src/buildMod.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fGradleH.py" afterPath="$PROJECT_DIR$/fGradleH.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/firstStart.py" afterPath="$PROJECT_DIR$/src/firstStart.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pythonHelper.py" afterPath="$PROJECT_DIR$/pythonHelper.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/setupBuild.py" afterPath="$PROJECT_DIR$/src/setupBuild.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/setupForge.py" afterPath="$PROJECT_DIR$/src/setupForge.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fgw_src/firstStart.py" afterPath="$PROJECT_DIR$/fgw_src/firstStart.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fgw_src/help.py" afterPath="$PROJECT_DIR$/fgw_src/help.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fgw_src/setupBuild.py" afterPath="$PROJECT_DIR$/fgw_src/setupBuild.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fgw_src/setupForge.py" afterPath="$PROJECT_DIR$/fgw_src/setupForge.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fgw_src/title.py" afterPath="$PROJECT_DIR$/fgw_src/title.py" />
     </list>
     <ignored path="ForgeGradleWrapper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,16 +35,16 @@
         <entry file="file://$PROJECT_DIR$/fGradleH.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="firstStart.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/firstStart.py">
+      <file leaf-file-name="firstStart.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fgw_src/firstStart.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+            <state vertical-scroll-proportion="0.24533333" vertical-offset="3" max-vertical-offset="952">
               <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
               <folding />
             </state>
@@ -54,7 +52,7 @@
         </entry>
       </file>
       <file leaf-file-name="WorkingMsg.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WorkingMsg.py">
+        <entry file="file://$PROJECT_DIR$/fgw_src/WorkingMsg.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
               <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
@@ -64,7 +62,7 @@
         </entry>
       </file>
       <file leaf-file-name="setupForge.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/setupForge.py">
+        <entry file="file://$PROJECT_DIR$/fgw_src/setupForge.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2958">
               <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
@@ -74,7 +72,7 @@
         </entry>
       </file>
       <file leaf-file-name="config.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/config.py">
+        <entry file="file://$PROJECT_DIR$/fgw_src/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
               <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
@@ -84,17 +82,17 @@
         </entry>
       </file>
       <file leaf-file-name="setupBuild.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/setupBuild.py">
+        <entry file="file://$PROJECT_DIR$/fgw_src/setupBuild.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="561">
+              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="pythonHelper.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pythonHelper.py">
+        <entry file="file://$PROJECT_DIR$/fgw_src/pythonHelper.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="799">
               <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
@@ -103,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="help.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/help.py">
+      <file leaf-file-name="help.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fgw_src/help.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.864" vertical-offset="236" max-vertical-offset="1003">
-              <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="219" max-vertical-offset="986">
+              <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -150,6 +148,7 @@
         <option value="$PROJECT_DIR$/pythonHelper.py" />
         <option value="$PROJECT_DIR$/src/firstStart.py" />
         <option value="$PROJECT_DIR$/src/help.py" />
+        <option value="$PROJECT_DIR$/fgw_src/firstStart.py" />
       </list>
     </option>
   </component>
@@ -232,7 +231,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="fgw_src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -508,7 +507,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/setupForge.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/setupForge.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1666" max-vertical-offset="3264">
           <caret line="98" column="18" selection-start-line="98" selection-start-column="18" selection-end-line="98" selection-end-column="18" />
@@ -516,7 +515,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="850">
           <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
@@ -524,7 +523,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/buildMod.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/buildMod.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
           <caret line="59" column="69" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
@@ -532,7 +531,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pythonHelper.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/pythonHelper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="799">
           <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
@@ -548,7 +547,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupBuild.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/setupBuild.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="408">
           <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
@@ -563,7 +562,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="697">
           <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
@@ -571,7 +570,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/buildMod.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/buildMod.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1003" max-vertical-offset="1105">
           <caret line="59" column="69" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
@@ -579,7 +578,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pythonHelper.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/pythonHelper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="799">
           <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
@@ -595,7 +594,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupBuild.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/setupBuild.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="340">
           <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
@@ -610,7 +609,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="697">
           <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
@@ -618,7 +617,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/buildMod.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/buildMod.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
           <caret line="59" column="69" selection-start-line="59" selection-start-column="69" selection-end-line="59" selection-end-column="69" />
@@ -626,7 +625,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pythonHelper.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/pythonHelper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="799">
           <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
@@ -642,7 +641,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="697">
           <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
@@ -650,14 +649,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupForge.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/setupForge.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2805" max-vertical-offset="3111">
           <caret line="165" column="12" selection-start-line="165" selection-start-column="12" selection-end-line="165" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/buildMod.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/buildMod.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="1122">
           <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
@@ -665,7 +664,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pythonHelper.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/pythonHelper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="782">
           <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
@@ -681,14 +680,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupForge.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/setupForge.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3111">
           <caret line="165" column="12" selection-start-line="165" selection-start-column="12" selection-end-line="165" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/buildMod.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/buildMod.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="1122">
           <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
@@ -696,7 +695,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pythonHelper.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/pythonHelper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="782">
           <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
@@ -712,14 +711,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupForge.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/setupForge.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3111">
           <caret line="165" column="12" selection-start-line="165" selection-start-column="12" selection-end-line="165" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/buildMod.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/buildMod.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="603" max-vertical-offset="1105">
           <caret line="55" column="104" selection-start-line="55" selection-start-column="104" selection-end-line="55" selection-end-column="104" />
@@ -727,7 +726,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pythonHelper.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/pythonHelper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="782">
           <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
@@ -750,7 +749,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/__init__.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
@@ -764,14 +763,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/landscape.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/landscape.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56666666" vertical-offset="0" max-vertical-offset="750">
           <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/nothingToSeeHereReallyNopeSoEmptyAndNothingness.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/nothingToSeeHereReallyNopeSoEmptyAndNothingness.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.9493333" vertical-offset="1069" max-vertical-offset="1819">
           <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
@@ -785,7 +784,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/title.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/title.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.476" vertical-offset="0" max-vertical-offset="750">
           <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
@@ -832,7 +831,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/buildMod.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/buildMod.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.456" vertical-offset="49" max-vertical-offset="952">
           <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
@@ -840,7 +839,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WorkingMsg.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/WorkingMsg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="83" max-vertical-offset="833">
           <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
@@ -848,7 +847,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupForge.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/setupForge.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="2958">
           <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
@@ -856,7 +855,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="32" max-vertical-offset="782">
           <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
@@ -864,15 +863,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupBuild.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/setupBuild.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="561">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pythonHelper.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/pythonHelper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
@@ -880,29 +879,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/firstStart.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/help.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="219" max-vertical-offset="986">
+          <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fGradleH.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/help.py">
+    <entry file="file://$PROJECT_DIR$/fgw_src/firstStart.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.864" vertical-offset="236" max-vertical-offset="1003">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.24533333" vertical-offset="3" max-vertical-offset="952">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
