@@ -5,6 +5,8 @@ import os
 
 from colorama import Style
 
+__author__ = 'SanAndreasP'
+
 
 def pause():
     if os.system("PAUSE") != 0:
@@ -31,7 +33,7 @@ def get_yesno_input(s):
     return usr_input.lower() == "y"
 
 
-def printmenu_and_getchoice(menu_title, menu_items, menu_choice):
+def menu_with_choice(menu_title, menu_items, menu_choice):
     print(Style.NORMAL + menu_title)
     for k in menu_items:
         val = menu_items[k]

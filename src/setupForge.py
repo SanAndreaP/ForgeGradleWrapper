@@ -71,8 +71,8 @@ def download_gradle():
             packages[str(forgebuild)] = pkg
     print("[Done]")
 
-    choice = pythonHelper.printmenu_and_getchoice("Following packages are recommended", packages,
-                                                  "Please enter a preferred build number to continue")
+    choice = pythonHelper.menu_with_choice("Following packages are recommended", packages,
+                                           "Please enter a preferred build number to continue")
 
     if os.path.isfile(os.path.join(gradle_path, "build.gradle")):
         filemode = os.stat(os.path.join(gradle_path, "build.gradle"))[stat.ST_MODE]
@@ -175,7 +175,7 @@ def call():
         menu_items["1"] = "rebuild workspace"
         menu_items["2"] = "update ForgeGradle"
         menu_title = Style.BRIGHT + Fore.GREEN + "ForgeGradle has been found!" + Fore.RESET + Style.NORMAL
-        choice = pythonHelper.printmenu_and_getchoice(menu_title, menu_items, "Please choose an option from above")
+        choice = pythonHelper.menu_with_choice(menu_title, menu_items, "Please choose an option from above")
         if choice == "1":
             setup_gradle()
         elif choice == "2":

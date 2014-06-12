@@ -29,8 +29,8 @@ def call():
     menulist["0"] = "[Abort]"
 
     choice = pythonHelper.is_integer(
-        pythonHelper.printmenu_and_getchoice("There are following mods available for building", menulist,
-                                             "Please choose a mod to build")
+        pythonHelper.menu_with_choice("There are following mods available for building", menulist,
+                                      "Please choose a mod to build")
     )
     if 0 < choice <= len(modlist):
         build_mod(os.path.join(gradlePath, "src", modlist[choice-1]))

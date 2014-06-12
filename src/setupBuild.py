@@ -19,8 +19,8 @@ def call():
     menu_items["9"] = ("[NYI] Manage remote dependencies", lambda: None)
     menu_items["0"] = ("Abort", lambda: None)
 
-    choice = pythonHelper.printmenu_and_getchoice("Following options are available:", menu_items,
-                                                  "Please choose an option from above")
+    choice = pythonHelper.menu_with_choice("Following options are available:", menu_items,
+                                           "Please choose an option from above")
     title.show("Mod Build Setup")
     menu_items[choice][1]()
 

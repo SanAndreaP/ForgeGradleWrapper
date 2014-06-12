@@ -32,7 +32,7 @@ menuTxt["0"] = "exit"
 def mainmenu():
     global menuItm, menuTxt
     title.show()
-    choice = pythonHelper.printmenu_and_getchoice("Menu:", menuTxt, "Please choose an item from above")
+    choice = pythonHelper.menu_with_choice("Menu:", menuTxt, "Please choose an item from above")
     menuItm[choice]()
 
 while True:
