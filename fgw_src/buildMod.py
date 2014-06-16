@@ -5,23 +5,15 @@ import webbrowser
 import os
 from collections import OrderedDict
 
-from fgw_src import title, pythonHelper
+from fgw_src import pythonHelper, config, title
 from colorama import Fore, Style
 
 
 def call():
-    global gradlePath
-    gradlePath = r"."
     title.show("Mod Building")
-    if os.path.isfile("forge/gradlew"):
-        gradlePath = r"forge"
-    elif not os.path.isfile("gradlew"):
-        print(Fore.RED + Style.BRIGHT + "Gradle could not be found!")
-        print("Please setup Forge first and then try to build your mod again!" + Fore.RESET + Style.NORMAL)
-        return
-
-    modlist = [f for f in os.listdir(os.path.join(gradlePath, "fgw_src"))
-               if not os.path.isfile(os.path.join(gradlePath, "fgw_src", f))]
+    gradle_path = config.data[config.GRADLE_PATH]
+    modlist = [f for f in os.listdir(os.path.join(gradle_path, "src"))
+               if not os.path.isfile(os.path.join(gradle_path, "src", f))]
     menulist = OrderedDict()
     for idx, val in enumerate(modlist):
         menulist[str(idx + 1)] = val
@@ -32,17 +24,18 @@ def call():
                                       "Please choose a mod to build")
     )
     if 0 < choice <= len(modlist):
-        build_mod(os.path.join(gradlePath, "fgw_src", modlist[choice - 1]))
+        build_mod(os.path.join(gradle_path, "src", modlist[choice - 1]))
 
 
 def build_mod(mod):
+    gradle_path = config.data[config.GRADLE_PATH]
     proc = None
     try:
-        gradlew_cmd = "\"" + os.path.join(os.getcwd(), gradlePath, "gradlew\"") + " build --stacktrace"
+        gradlew_cmd = "\"" + os.path.join(os.getcwd(), gradle_path, "gradlew\"") + " build --stacktrace"
         proc = subprocess.Popen(gradlew_cmd, cwd=mod)
     except WindowsError:
         try:
-            gradlew_cmd = "\"" + os.path.join(os.getcwd(), gradlePath, "gradlew.bat\"") + " build --stacktrace"
+            gradlew_cmd = "\"" + os.path.join(os.getcwd(), gradle_path, "gradlew.bat\"") + " build --stacktrace"
             proc = subprocess.Popen(gradlew_cmd, cwd=mod)
         except Exception as ex:
             print(Fore.RED + Style.BRIGHT + ex + Fore.RESET + Style.NORMAL)

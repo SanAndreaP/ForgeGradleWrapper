@@ -34,10 +34,12 @@ def get_yesno_input(s):
     return usr_input.lower() == "y"
 
 
-def menu_with_choice(menu_title, menu_items, menu_choice):
+def menu_with_choice(menu_title, menu_items, menu_choice, vis_menu_items=None):
+    if vis_menu_items is None:
+        vis_menu_items = menu_items
     print(Style.NORMAL + menu_title)
-    for k in menu_items:
-        val = menu_items[k]
+    for k in vis_menu_items:
+        val = vis_menu_items[k]
         if isinstance(val, tuple):
             val = val[0]
         print(" [" + Style.BRIGHT + k + Style.NORMAL + "] " + val)
