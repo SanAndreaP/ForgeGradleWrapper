@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxPanel" name="setupForge">
+		<size>800,600</size>
+		<bg>#FFC0C0</bg>
+		<pos_arg>1</pos_arg>
+		<size_arg>1</size_arg>
+		<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
+			<value>Text</value>
+			<pos>8,8</pos>
+		</object>
+		<object class="wxRichTextCtrl" name="ID_RICHTEXTCTRL1" variable="RichTextCtrl1" member="yes">
+			<value>Text</value>
+			<pos>8,32</pos>
+			<size>512,416</size>
+		</object>
+	</object>
+</wxsmith>
