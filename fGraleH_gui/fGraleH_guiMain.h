@@ -15,6 +15,7 @@
 #include <wx/frame.h>
 //*)
 #include "setupForge.h"
+#include "mainMenu.h"
 
 class fGraleH_guiFrame: public wxFrame
 {
@@ -36,9 +37,10 @@ class fGraleH_guiFrame: public wxFrame
         //*)
 
         //(*Declarations(fGraleH_guiFrame)
-        wxPanel* Panel1;
+        wxPanel* P_Main;
         //*)
 
+        wxPanel* P_MainMenu;
         wxPanel* P_SetupForge;
 
         DECLARE_EVENT_TABLE()

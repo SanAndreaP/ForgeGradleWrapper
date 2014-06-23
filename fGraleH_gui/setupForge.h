@@ -2,7 +2,6 @@
 #define SETUPFORGE_H
 
 //(*Headers(setupForge)
-#include <wx/textctrl.h>
 #include <wx/panel.h>
 #include <wx/richtext/richtextctrl.h>
 //*)
@@ -16,19 +15,20 @@ class setupForge: public wxPanel
 
 		//(*Declarations(setupForge)
 		wxRichTextCtrl* RichTextCtrl1;
-		wxTextCtrl* TextCtrl1;
+		wxPanel* Panel1;
 		//*)
 
 	protected:
 
 		//(*Identifiers(setupForge)
-		static const long ID_TEXTCTRL1;
 		static const long ID_RICHTEXTCTRL1;
+		static const long ID_PANEL1;
 		//*)
 
 	private:
 
 		//(*Handlers(setupForge)
+		void OnBitmapButton1Click(wxCommandEvent& event);
 		//*)
 
 		DECLARE_EVENT_TABLE()

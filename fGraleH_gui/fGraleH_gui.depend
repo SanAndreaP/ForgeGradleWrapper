@@ -150,7 +150,7 @@
 	"wx/cpp.h"
 	"wx/dlimpexp.h"
 
-1403081932 c:\wxwidgets-3.0.1\include\wx\chartype.h
+1403245866 c:\wxwidgets-3.0.1\include\wx\chartype.h
 	"wx/platform.h"
 	<sys/types.h>
 	<wchar.h>
@@ -2219,14 +2219,20 @@
 1403102489 c:\stuff\c++ projects\fgraleh_gui\mainmenu.h
 	<wx/panel.h>
 
-1403181081 source:c:\stuff\c++ projects\fgraleh_gui\setupforge.cpp
+1403287776 source:c:\stuff\c++ projects\fgraleh_gui\setupforge.cpp
 	"setupForge.h"
+	<wx/bitmap.h>
 	<wx/intl.h>
+	<wx/image.h>
 	<wx/string.h>
+	<boost/python.hpp>
+	<sstream>
+	<string>
 
-1403181065 c:\stuff\c++ projects\fgraleh_gui\setupforge.h
+1403264912 c:\stuff\c++ projects\fgraleh_gui\setupforge.h
 	<wx/textctrl.h>
 	<wx/panel.h>
+	<wx/bmpbuttn.h>
 	<wx/richtext/richtextctrl.h>
 
 1403081939 c:\wxwidgets-3.0.1\include\wx\richtext\richtextctrl.h
@@ -2412,4 +2418,107 @@
 1403081949 c:\wxwidgets-3.0.1\include\wx\os2\dnd.h
 	<os2.h>
 	<pmstddlg.h>
+
+1403081931 c:\wxwidgets-3.0.1\include\wx\bmpbuttn.h
+	"wx/defs.h"
+	"wx/button.h"
+	"wx/univ/bmpbuttn.h"
+	"wx/msw/bmpbuttn.h"
+	"wx/motif/bmpbuttn.h"
+	"wx/gtk/bmpbuttn.h"
+	"wx/gtk1/bmpbuttn.h"
+	"wx/osx/bmpbuttn.h"
+	"wx/cocoa/bmpbuttn.h"
+	"wx/os2/bmpbuttn.h"
+
+1403081943 c:\wxwidgets-3.0.1\include\wx\univ\bmpbuttn.h
+
+1403081944 c:\wxwidgets-3.0.1\include\wx\msw\bmpbuttn.h
+	"wx/button.h"
+	"wx/bitmap.h"
+	"wx/brush.h"
+
+1403081954 c:\wxwidgets-3.0.1\include\wx\motif\bmpbuttn.h
+	"wx/motif/bmpmotif.h"
+
+1403081955 c:\wxwidgets-3.0.1\include\wx\motif\bmpmotif.h
+	"wx/defs.h"
+	"wx/bitmap.h"
+
+1403081950 c:\wxwidgets-3.0.1\include\wx\gtk\bmpbuttn.h
+
+1403081951 c:\wxwidgets-3.0.1\include\wx\gtk1\bmpbuttn.h
+
+1403081939 c:\wxwidgets-3.0.1\include\wx\osx\bmpbuttn.h
+	"wx/button.h"
+
+1403081942 c:\wxwidgets-3.0.1\include\wx\cocoa\bmpbuttn.h
+	"wx/cocoa/NSButton.h"
+
+1403081948 c:\wxwidgets-3.0.1\include\wx\os2\bmpbuttn.h
+	"wx/button.h"
+	"wx/dcclient.h"
+
+1403087436 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\fgraleh_guiapp.cpp
+	"fGraleH_guiApp.h"
+	"fGraleH_guiMain.h"
+	<wx/image.h>
+
+1403087435 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\fgraleh_guiapp.h
+	<wx/app.h>
+
+1403520206 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\fgraleh_guimain.h
+	<wx/panel.h>
+	<wx/frame.h>
+	"setupForge.h"
+	"mainMenu.h"
+
+1403519983 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\setupforge.h
+	<wx/panel.h>
+	<wx/richtext/richtextctrl.h>
+
+1403520165 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\fgraleh_guimain.cpp
+	"fGraleH_guiMain.h"
+	<wx/msgdlg.h>
+	<wx/intl.h>
+	<wx/string.h>
+
+1385320476 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\resource.rc
+	"wx/msw/wx.rc"
+
+1403520265 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\setupforge.cpp
+	"setupForge.h"
+	<wx/settings.h>
+	<wx/font.h>
+	<wx/intl.h>
+	<wx/string.h>
+	"pythonHelper.hpp"
+
+1403518996 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\pythonhelper.hpp
+	<cmath>
+	<boost/python.hpp>
+	<string>
+	<map>
+	<functional>
+
+1403518938 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\pythonhelper.cpp
+	"pythonHelper.hpp"
+
+1403523662 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\mainmenu.cpp
+	"MainMenu.h"
+	<sstream>
+	<iomanip>
+	<string>
+	<wx/image.h>
+	<wx/bitmap.h>
+	<stdio.h>
+	"images/button_stpFrg.hpp"
+
+1403523444 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\mainmenu.h
+	<wx/textctrl.h>
+	<wx/panel.h>
+	<wx/bmpbuttn.h>
+	<wx/button.h>
+
+1403523158 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\images\button_stpfrg.hpp
 

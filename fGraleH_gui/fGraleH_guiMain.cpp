@@ -55,13 +55,15 @@ fGraleH_guiFrame::fGraleH_guiFrame(wxWindow* parent,wxWindowID id)
     //(*Initialize(fGraleH_guiFrame)
     Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE|wxCLOSE_BOX|wxFRAME_SHAPED|wxMINIMIZE_BOX, _T("wxID_ANY"));
     SetClientSize(wxSize(800,600));
-    Panel1 = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxSize(800,600), wxTAB_TRAVERSAL, _T("ID_PANEL1"));
-    Panel1->SetBackgroundColour(wxColour(128,128,192));
+    P_Main = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxSize(800,600), wxTAB_TRAVERSAL, _T("ID_PANEL1"));
     //*)
 
-    this->SetClientSize(this->Panel1->GetSize());
+    this->SetClientSize(this->P_Main->GetSize());
     this->CenterOnScreen();
-    this->P_SetupForge = new setupForge(this->Panel1);
+    this->P_MainMenu = new mainMenu(this->P_Main);
+    this->P_SetupForge = new setupForge(this->P_Main);
+
+    this->P_SetupForge->Hide();
 }
 
 fGraleH_guiFrame::~fGraleH_guiFrame()

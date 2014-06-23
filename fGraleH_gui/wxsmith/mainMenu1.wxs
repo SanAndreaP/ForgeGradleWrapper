@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxPanel" name="mainMenu">
+		<size>800,600</size>
+		<pos_arg>1</pos_arg>
+		<size_arg>1</size_arg>
+		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+			<pos>0,0</pos>
+			<size>800,600</size>
+			<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
+				<label>Label</label>
+				<pos>48,64</pos>
+				<handler function="OnButton1Click" entry="EVT_BUTTON" />
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
+				<value>Text</value>
+				<pos>160,16</pos>
+				<size>592,432</size>
+				<style>wxTE_MULTILINE</style>
+			</object>
+			<object class="wxBitmapButton" name="ID_BITMAPBUTTON1" variable="BitmapButton1" member="yes">
+				<pos>136,496</pos>
+				<size>224,23</size>
+				<bg>wxSYS_COLOUR_HIGHLIGHT</bg>
+			</object>
+		</object>
+	</object>
+</wxsmith>
