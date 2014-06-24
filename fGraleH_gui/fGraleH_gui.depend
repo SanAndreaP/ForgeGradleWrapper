@@ -2467,17 +2467,18 @@
 1403087435 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\fgraleh_guiapp.h
 	<wx/app.h>
 
-1403520206 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\fgraleh_guimain.h
+1403608996 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\fgraleh_guimain.h
 	<wx/panel.h>
 	<wx/frame.h>
 	"setupForge.h"
 	"mainMenu.h"
+	<map>
 
 1403519983 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\setupforge.h
 	<wx/panel.h>
 	<wx/richtext/richtextctrl.h>
 
-1403520165 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\fgraleh_guimain.cpp
+1403609321 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\fgraleh_guimain.cpp
 	"fGraleH_guiMain.h"
 	<wx/msgdlg.h>
 	<wx/intl.h>
@@ -2504,7 +2505,7 @@
 1403518938 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\pythonhelper.cpp
 	"pythonHelper.hpp"
 
-1403523662 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\mainmenu.cpp
+1403609334 source:c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\mainmenu.cpp
 	"MainMenu.h"
 	<sstream>
 	<iomanip>
@@ -2513,12 +2514,12 @@
 	<wx/bitmap.h>
 	<stdio.h>
 	"images/button_stpFrg.hpp"
+	"fGraleH_guiMain.h"
 
-1403523444 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\mainmenu.h
-	<wx/textctrl.h>
+1403608219 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\mainmenu.h
 	<wx/panel.h>
 	<wx/bmpbuttn.h>
-	<wx/button.h>
 
-1403523158 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\images\button_stpfrg.hpp
+1403605474 c:\stuff\c++ projects\forgegradlewrapper\fgraleh_gui\images\button_stpfrg.hpp
+	<wx/image.h>
 

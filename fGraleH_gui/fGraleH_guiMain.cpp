@@ -60,10 +60,12 @@ fGraleH_guiFrame::fGraleH_guiFrame(wxWindow* parent,wxWindowID id)
 
     this->SetClientSize(this->P_Main->GetSize());
     this->CenterOnScreen();
-    this->P_MainMenu = new mainMenu(this->P_Main);
-    this->P_SetupForge = new setupForge(this->P_Main);
+    this->m_panels.insert(std::pair<Panels, wxPanel*>(Panels::MAIN_MENU, new mainMenu(this->P_Main)));
+    this->m_panels.insert(std::pair<Panels, wxPanel*>(Panels::STP_FORGE, new setupForge(this->P_Main)));
 
-    this->P_SetupForge->Hide();
+    this->changePanel(Panels::MAIN_MENU);
+
+//    this->m_panels.at(Panels::STP_FORGE)->Hide();
 }
 
 fGraleH_guiFrame::~fGraleH_guiFrame()
@@ -87,4 +89,15 @@ void fGraleH_guiFrame::OnAbout(wxCommandEvent& event)
 void fGraleH_guiFrame::OnResize(wxSizeEvent& event)
 {
     event.Skip();
+}
+
+void fGraleH_guiFrame::changePanel(Panels panel)
+{
+    for( std::pair<Panels, wxPanel*> elem : this->m_panels ) {
+        if( elem.first == panel ) {
+            elem.second->Show();
+        } else {
+            elem.second->Hide();
+        }
+    }
 }

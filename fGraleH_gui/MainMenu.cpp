@@ -7,6 +7,7 @@
 #include <wx/bitmap.h>
 #include <stdio.h>
 #include "images/button_stpFrg.hpp"
+#include "fGraleH_guiMain.h"
 
 //(*InternalHeaders(mainMenu)
 #include <wx/settings.h>
@@ -15,8 +16,6 @@
 //*)
 
 //(*IdInit(mainMenu)
-const long mainMenu::ID_BUTTON1 = wxNewId();
-const long mainMenu::ID_TEXTCTRL1 = wxNewId();
 const long mainMenu::ID_BITMAPBUTTON1 = wxNewId();
 const long mainMenu::ID_PANEL1 = wxNewId();
 //*)
@@ -29,21 +28,18 @@ END_EVENT_TABLE()
 mainMenu::mainMenu(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size)
 {
 	//(*Initialize(mainMenu)
-	Create(parent, wxID_ANY, wxDefaultPosition, wxSize(800,600), wxTAB_TRAVERSAL, _T("wxID_ANY"));
+	Create(parent, id, wxDefaultPosition, wxSize(800,600), wxTAB_TRAVERSAL, _T("id"));
 	Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(0,0), wxSize(800,600), wxTAB_TRAVERSAL, _T("ID_PANEL1"));
-	Button1 = new wxButton(Panel1, ID_BUTTON1, _("Label"), wxPoint(48,64), wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
-	TextCtrl1 = new wxTextCtrl(Panel1, ID_TEXTCTRL1, _("Text"), wxPoint(160,16), wxSize(592,432), wxTE_MULTILINE, wxDefaultValidator, _T("ID_TEXTCTRL1"));
-	BitmapButton1 = new wxBitmapButton(Panel1, ID_BITMAPBUTTON1, wxNullBitmap, wxPoint(136,496), wxSize(224,23), wxBU_AUTODRAW, wxDefaultValidator, _T("ID_BITMAPBUTTON1"));
+	BitmapButton1 = new wxBitmapButton(Panel1, ID_BITMAPBUTTON1, wxNullBitmap, wxPoint(272,24), wxSize(224,23), wxBU_AUTODRAW, wxDefaultValidator, _T("ID_BITMAPBUTTON1"));
 	BitmapButton1->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_HIGHLIGHT));
 
-	Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&mainMenu::OnButton1Click);
+	Connect(ID_BITMAPBUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&mainMenu::OnBitmapButton1Click);
 	//*)
 
-	BitmapButton1->SetBitmap(wxBitmap(wxImage(buttonStpFrg::sizeX, buttonStpFrg::sizeY, buttonStpFrg::normal, true)));
-	BitmapButton1->SetBitmapFocus(wxBitmap(wxImage(buttonStpFrg::sizeX, buttonStpFrg::sizeY, buttonStpFrg::normal, true)));
-	BitmapButton1->SetBitmapDisabled(wxBitmap(wxImage(buttonStpFrg::sizeX, buttonStpFrg::sizeY, buttonStpFrg::normal, true)));
-	BitmapButton1->SetBitmapHover(wxBitmap(wxImage(buttonStpFrg::sizeX, buttonStpFrg::sizeY, buttonStpFrg::hover, true)));
-	BitmapButton2->SetBitmap(wxBitmap(wxImage(_T("C:\\Stuff\\C++ Projects\\ForgeGradleWrapper\\fGraleH_gui\\images\\button_stpFrg.png"))));
+	BitmapButton1->SetBitmap(wxBitmap(buttonSetupFrg::getNormal()));
+	BitmapButton1->SetBitmapFocus(wxBitmap(buttonSetupFrg::getFocused()));
+	BitmapButton1->SetBitmapDisabled(wxBitmap(buttonSetupFrg::getDisabled()));
+	BitmapButton1->SetBitmapHover(wxBitmap(buttonSetupFrg::getHovered()));
 }
 
 mainMenu::~mainMenu()
@@ -52,15 +48,8 @@ mainMenu::~mainMenu()
 	//*)
 }
 
-
-void mainMenu::OnButton1Click(wxCommandEvent& event)
+void mainMenu::OnBitmapButton1Click(wxCommandEvent& event)
 {
-    wxImage img(_T("C:\\Stuff\\C++ Projects\\ForgeGradleWrapper\\fGraleH_gui\\images\\button_stpFrg.png"));
-    unsigned long imgArea = img.GetWidth()*img.GetHeight();
-    unsigned char *imgData = img.GetData();
-    std::stringstream outp;
-    for( unsigned long i = 0; i < imgArea*3L; i++ ) {
-        outp << "\\x" << std::hex << (unsigned int)imgData[i];
-    }
-    this->TextCtrl1->SetValue(outp.str());
+    this->Hide();
+    ((fGraleH_guiFrame*)this->GetParent())->changePanel(fGraleH_guiFrame::Panels::STP_FORGE);
 }

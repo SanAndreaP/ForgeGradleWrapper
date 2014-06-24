@@ -2,10 +2,8 @@
 #define MAINMENU_H
 
 //(*Headers(mainMenu)
-#include <wx/textctrl.h>
 #include <wx/panel.h>
 #include <wx/bmpbuttn.h>
-#include <wx/button.h>
 //*)
 
 class mainMenu: public wxPanel
@@ -16,17 +14,13 @@ class mainMenu: public wxPanel
 		virtual ~mainMenu();
 
 		//(*Declarations(mainMenu)
-		wxButton* Button1;
 		wxPanel* Panel1;
 		wxBitmapButton* BitmapButton1;
-		wxTextCtrl* TextCtrl1;
 		//*)
 
 	protected:
 
 		//(*Identifiers(mainMenu)
-		static const long ID_BUTTON1;
-		static const long ID_TEXTCTRL1;
 		static const long ID_BITMAPBUTTON1;
 		static const long ID_PANEL1;
 		//*)
@@ -34,7 +28,7 @@ class mainMenu: public wxPanel
 	private:
 
 		//(*Handlers(mainMenu)
-		void OnButton1Click(wxCommandEvent& event);
+		void OnBitmapButton1Click(wxCommandEvent& event);
 		//*)
 
 		DECLARE_EVENT_TABLE()

@@ -16,13 +16,15 @@
 //*)
 #include "setupForge.h"
 #include "mainMenu.h"
+#include <map>
 
 class fGraleH_guiFrame: public wxFrame
 {
     public:
-
+        enum Panels {MAIN_MENU, STP_FORGE};
         fGraleH_guiFrame(wxWindow* parent,wxWindowID id = -1);
         virtual ~fGraleH_guiFrame();
+        void changePanel(Panels panel);
 
     private:
 
@@ -40,10 +42,9 @@ class fGraleH_guiFrame: public wxFrame
         wxPanel* P_Main;
         //*)
 
-        wxPanel* P_MainMenu;
-        wxPanel* P_SetupForge;
-
         DECLARE_EVENT_TABLE()
+
+        std::map<Panels, wxPanel*> m_panels;
 };
 
 #endif // FGRALEH_GUIMAIN_H
