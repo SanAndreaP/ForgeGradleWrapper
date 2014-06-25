@@ -5,7 +5,21 @@
 		<id_arg>0</id_arg>
 		<style>wxDEFAULT_DIALOG_STYLE|wxCLOSE_BOX|wxFRAME_SHAPED|wxMINIMIZE_BOX</style>
 		<object class="wxPanel" name="ID_PANEL1" variable="P_Main" member="yes">
+			<pos>0,0</pos>
 			<size>800,600</size>
+			<object class="wxBitmapButton" name="ID_BITMAPBUTTON2" variable="BitmapButton1" member="yes">
+				<pos>256,160</pos>
+				<size>304,29</size>
+				<enabled>0</enabled>
+				<bg>#8080C0</bg>
+				<handler function="OnBBtn_SetupForgeClick" entry="EVT_BUTTON" />
+			</object>
+			<object class="wxBitmapButton" name="ID_BITMAPBUTTON1" variable="BBtn_SetupForge" member="yes">
+				<pos>256,120</pos>
+				<size>304,29</size>
+				<bg>#8080C0</bg>
+				<handler function="OnBBtn_SetupForgeClick" entry="EVT_BUTTON" />
+			</object>
 		</object>
 	</object>
 </wxsmith>

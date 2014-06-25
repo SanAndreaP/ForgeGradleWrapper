@@ -24,7 +24,8 @@ setupForge::setupForge(wxWindow* parent,wxWindowID id,const wxPoint& pos,const w
 	//(*Initialize(setupForge)
 	Create(parent, id, wxDefaultPosition, wxSize(800,600), wxTAB_TRAVERSAL, _T("id"));
 	Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(0,0), wxSize(800,600), wxTAB_TRAVERSAL, _T("ID_PANEL1"));
-	RichTextCtrl1 = new wxRichTextCtrl(Panel1, ID_RICHTEXTCTRL1, wxEmptyString, wxPoint(0,0), wxSize(512,328), wxRE_MULTILINE|wxRE_READONLY|wxVSCROLL, wxDefaultValidator, _T("ID_RICHTEXTCTRL1"));
+	Panel1->SetBackgroundColour(wxColour(0,255,0));
+	RichTextCtrl1 = new wxRichTextCtrl(Panel1, ID_RICHTEXTCTRL1, wxEmptyString, wxPoint(128,96), wxSize(512,328), wxRE_MULTILINE|wxRE_READONLY|wxVSCROLL, wxDefaultValidator, _T("ID_RICHTEXTCTRL1"));
 	wxRichTextAttr rchtxtAttr_1;
 	rchtxtAttr_1.SetBulletStyle(wxTEXT_ATTR_BULLET_STYLE_ALIGN_LEFT);
 	wxFont Font_1 = wxSystemSettings::GetFont(wxSYS_ANSI_FIXED_FONT);

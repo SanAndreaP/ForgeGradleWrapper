@@ -12,11 +12,11 @@
 
 //(*Headers(fGraleH_guiFrame)
 #include <wx/panel.h>
+#include <wx/bmpbuttn.h>
 #include <wx/frame.h>
 //*)
 #include "setupForge.h"
-#include "mainMenu.h"
-#include <map>
+//#include "mainMenu.h"
 
 class fGraleH_guiFrame: public wxFrame
 {
@@ -32,19 +32,24 @@ class fGraleH_guiFrame: public wxFrame
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
         void OnResize(wxSizeEvent& event);
+        void OnBBtn_SetupForgeClick(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(fGraleH_guiFrame)
+        static const long ID_BITMAPBUTTON2;
+        static const long ID_BITMAPBUTTON1;
         static const long ID_PANEL1;
         //*)
 
         //(*Declarations(fGraleH_guiFrame)
         wxPanel* P_Main;
+        wxBitmapButton* BitmapButton1;
+        wxBitmapButton* BBtn_SetupForge;
         //*)
 
         DECLARE_EVENT_TABLE()
 
-        std::map<Panels, wxPanel*> m_panels;
+        wxPanel *P_SetupForge;
 };
 
 #endif // FGRALEH_GUIMAIN_H

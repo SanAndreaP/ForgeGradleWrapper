@@ -7,11 +7,12 @@
 		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
 			<pos>0,0</pos>
 			<size>800,600</size>
+			<bg>#00FF00</bg>
 			<object class="wxRichTextCtrl" name="ID_RICHTEXTCTRL1" variable="RichTextCtrl1" member="yes">
 				<font>
 					<sysfont>wxSYS_ANSI_FIXED_FONT</sysfont>
 				</font>
-				<pos>0,0</pos>
+				<pos>128,96</pos>
 				<size>512,328</size>
 				<style>wxRE_MULTILINE|wxRE_READONLY|wxVSCROLL</style>
 			</object>

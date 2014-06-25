@@ -74,13 +74,11 @@
 			<Add library="libwsock32.a" />
 			<Add library="libodbc32.a" />
 		</Linker>
-		<Unit filename="MainMenu.cpp" />
 		<Unit filename="fGraleH_guiApp.cpp" />
 		<Unit filename="fGraleH_guiApp.h" />
 		<Unit filename="fGraleH_guiMain.cpp" />
 		<Unit filename="fGraleH_guiMain.h" />
 		<Unit filename="images/button_stpFrg.hpp" />
-		<Unit filename="mainMenu.h" />
 		<Unit filename="pythonHelper.cpp" />
 		<Unit filename="pythonHelper.hpp" />
 		<Unit filename="resource.rc">
@@ -89,7 +87,6 @@
 		<Unit filename="setupForge.cpp" />
 		<Unit filename="setupForge.h" />
 		<Unit filename="wxsmith/fGraleH_guiframe.wxs" />
-		<Unit filename="wxsmith/mainMenu1.wxs" />
 		<Unit filename="wxsmith/setupForge.wxs" />
 		<Extensions>
 			<code_completion />
@@ -100,7 +97,6 @@
 				<resources>
 					<wxFrame wxs="wxsmith/fGraleH_guiframe.wxs" src="fGraleH_guiMain.cpp" hdr="fGraleH_guiMain.h" fwddecl="0" i18n="1" name="fGraleH_guiFrame" language="CPP" />
 					<wxPanel wxs="wxsmith/setupForge.wxs" src="setupForge.cpp" hdr="setupForge.h" fwddecl="0" i18n="1" name="setupForge" language="CPP" />
-					<wxPanel wxs="wxsmith/mainMenu1.wxs" src="mainMenu.cpp" hdr="mainMenu.h" fwddecl="0" i18n="1" name="mainMenu" language="CPP" />
 				</resources>
 			</wxsmith>
 		</Extensions>
