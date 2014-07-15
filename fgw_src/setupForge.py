@@ -164,9 +164,6 @@ def copy_def_buildgradle():
     filemode = os.stat(os.path.join(gradle_path, "build.gradle"))[stat.ST_MODE]
     os.chmod(os.path.join(gradle_path, "build.gradle"), filemode & ~stat.S_IWUSR & ~stat.S_IWGRP & ~stat.S_IWOTH)
     with io.open(os.path.join(gradle_path, "src", "main", "build.gradle"), mode="a", encoding="utf-8") as buildGradle:
-        buildGradle.write(u"\ndependencies {")
-        buildGradle.write(u"\n    compile fileTree(dir: 'libs', include: '*.jar')")
-        buildGradle.write(u"\n}\n")
         buildGradle.write(u"\nsourceSets {")
         buildGradle.write(u"\n    main {")
         buildGradle.write(u"\n        java { srcDir 'java' }")
@@ -185,6 +182,8 @@ def setup_gradle():
     if not run_gradle_task(["setupDecompWorkspace", "--refresh-dependencies", "--stacktrace"]):
         return
     if not run_gradle_task([config.data[config.IDE]]):
+        return
+    if not run_gradle_task(["setupDecompWorkspace", "--stacktrace"]):    # workaround for 1.7.10 Forge crash
         return
     print("\rSetup ForgeGradle... [Done]")
 
