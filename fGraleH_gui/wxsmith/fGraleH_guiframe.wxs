@@ -7,6 +7,7 @@
 		<object class="wxPanel" name="ID_PANEL1" variable="P_Main" member="yes">
 			<pos>0,0</pos>
 			<size>800,600</size>
+			<handler function="P_Main_OnPaint" entry="EVT_PAINT" />
 			<object class="wxBitmapButton" name="ID_BITMAPBUTTON2" variable="BitmapButton1" member="yes">
 				<pos>256,160</pos>
 				<size>304,29</size>

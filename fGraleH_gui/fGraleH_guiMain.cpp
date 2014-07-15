@@ -9,7 +9,9 @@
 
 #include "fGraleH_guiMain.h"
 #include "images/button_stpFrg.hpp"
+#include "images/progBkg.hpp"
 #include <wx/msgdlg.h>
+#include <wx/dcclient.h>
 
 //(*InternalHeaders(fGraleH_guiFrame)
 #include <wx/intl.h>
@@ -67,11 +69,15 @@ fGraleH_guiFrame::fGraleH_guiFrame(wxWindow* parent,wxWindowID id)
 
     Connect(ID_BITMAPBUTTON2,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&fGraleH_guiFrame::OnBBtn_SetupForgeClick);
     Connect(ID_BITMAPBUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&fGraleH_guiFrame::OnBBtn_SetupForgeClick);
+    P_Main->Connect(wxEVT_PAINT,(wxObjectEventFunction)&fGraleH_guiFrame::P_Main_OnPaint,0,this);
     //*)
 
 //    this->SetClientSize(this->NB_Main->GetSize());
     this->CenterOnScreen();
     this->P_SetupForge = new setupForge(this);
+
+    //this->mainBkg = wxBitmap(wxImage("./images/images/ProgBkg.png"));
+    this->mainBkg = wxBitmap(ProgBkg::getImage());
 
     this->BBtn_SetupForge->SetBitmap(wxBitmap(ButtonSetupForge::getNormal()));
     this->BBtn_SetupForge->SetBitmapFocus(wxBitmap(ButtonSetupForge::getFocus()));
@@ -119,4 +125,11 @@ void fGraleH_guiFrame::OnBBtn_SetupForgeClick(wxCommandEvent& event)
 {
     this->P_Main->Hide();
     this->P_SetupForge->Show();
+}
+
+void fGraleH_guiFrame::P_Main_OnPaint(wxPaintEvent& event)
+{
+    wxClientDC dc(this->P_Main);
+    dc.DrawBitmap(this->mainBkg, 0, 0, false);
+    event.Skip();
 }

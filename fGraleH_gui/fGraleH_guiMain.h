@@ -33,6 +33,7 @@ class fGraleH_guiFrame: public wxFrame
         void OnAbout(wxCommandEvent& event);
         void OnResize(wxSizeEvent& event);
         void OnBBtn_SetupForgeClick(wxCommandEvent& event);
+        void P_Main_OnPaint(wxPaintEvent& event);
         //*)
 
         //(*Identifiers(fGraleH_guiFrame)
@@ -50,6 +51,7 @@ class fGraleH_guiFrame: public wxFrame
         DECLARE_EVENT_TABLE()
 
         wxPanel *P_SetupForge;
+        wxBitmap mainBkg;
 };
 
 #endif // FGRALEH_GUIMAIN_H

@@ -79,6 +79,7 @@
 		<Unit filename="fGraleH_guiMain.cpp" />
 		<Unit filename="fGraleH_guiMain.h" />
 		<Unit filename="images/button_stpFrg.hpp" />
+		<Unit filename="images/progBkg.hpp" />
 		<Unit filename="pythonHelper.cpp" />
 		<Unit filename="pythonHelper.hpp" />
 		<Unit filename="resource.rc">
