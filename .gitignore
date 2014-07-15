@@ -2,3 +2,5 @@
 *.pyc
 forge
 fGraleH_gui/libboost_python-mgw48-mt-1_55.dll
+Python27
+ForgeGradleWrapper.exe
